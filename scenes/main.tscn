@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy8yxfuap688r"]
+[gd_scene load_steps=9 format=3 uid="uid://cy8yxfuap688r"]
 
 [ext_resource type="PackedScene" uid="uid://crlrot03hgdlh" path="res://scenes/player/player.tscn" id="1_0ntqu"]
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="2_r0r3j"]
 [ext_resource type="PackedScene" uid="uid://dnhti2qkhw45m" path="res://scenes/weapons/weapon.tscn" id="3_wy0nk"]
 [ext_resource type="PackedScene" uid="uid://tlhnks1d8vwq" path="res://scenes/weapons/bullet.tscn" id="4_13t6y"]
 [ext_resource type="Script" path="res://scripts/dead_zone.gd" id="5_oey0e"]
+[ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="6_ic8bt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u4h1g"]
 distance = -4.0
@@ -14,7 +15,7 @@ distance = -4.0
 [node name="Main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_0ntqu")]
-position = Vector2(957, 1089)
+position = Vector2(958, 977)
 speed = 450.0
 
 [node name="player_controller" parent="player" instance=ExtResource("2_r0r3j")]
@@ -23,14 +24,30 @@ speed = 450.0
 bullet_scene = ExtResource("4_13t6y")
 
 [node name="dead_zone" type="Area2D" parent="."]
-position = Vector2(942, -442)
-rotation = -3.13722
 collision_layer = 32768
 collision_mask = 8
 script = ExtResource("5_oey0e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dead_zone"]
-position = Vector2(3, 5)
+[node name="up" type="CollisionShape2D" parent="dead_zone"]
+position = Vector2(0, -450)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_u4h1g")
+debug_color = Color(0.95993, 1.27775e-06, 0.518882, 0.42)
+
+[node name="left" type="CollisionShape2D" parent="dead_zone"]
+position = Vector2(-450, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_u4h1g")
+debug_color = Color(0.95993, 1.27775e-06, 0.518882, 0.42)
+
+[node name="right" type="CollisionShape2D" parent="dead_zone"]
+position = Vector2(2370, -2)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_u4h1g")
+debug_color = Color(0.95993, 1.27775e-06, 0.518882, 0.42)
+
+[node name="down" type="CollisionShape2D" parent="dead_zone"]
+position = Vector2(0, 1530)
 shape = SubResource("WorldBoundaryShape2D_u4h1g")
 debug_color = Color(0.95993, 1.27775e-06, 0.518882, 0.42)
 
@@ -58,9 +75,17 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_1go6b")
 
 [node name="down" type="StaticBody2D" parent="boundaries"]
-position = Vector2(960, 1280)
+position = Vector2(960, 1080)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/down"]
 shape = SubResource("WorldBoundaryShape2D_1go6b")
+
+[node name="spawner" type="Node2D" parent="."]
+position = Vector2(1533, 967)
+script = ExtResource("6_ic8bt")
+fire_rate = 0.01
+
+[node name="weapon" parent="spawner" instance=ExtResource("3_wy0nk")]
+bullet_scene = ExtResource("4_13t6y")
 
 [connection signal="area_entered" from="dead_zone" to="dead_zone" method="_on_area_entered"]
