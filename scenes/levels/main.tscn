@@ -24,6 +24,7 @@ speed = 450.0
 
 [node name="weapon" parent="player" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("4_13t6y")
+fire_rate = 15.0
 
 [node name="dead_zone" type="Area2D" parent="."]
 collision_layer = 32768
