@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5iegvf3fddeh"]
+
+[ext_resource type="PackedScene" uid="uid://by2dpsnrjco44" path="res://scenes/enemies/taurus/taurus.tscn" id="1_mmgtn"]
+
+[node name="TaurusPlayground" type="Node2D"]
+
+[node name="Taurus" parent="." instance=ExtResource("1_mmgtn")]
+position = Vector2(901, 272)
+scale = Vector2(0.8, 0.8)
