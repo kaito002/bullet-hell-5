@@ -2,6 +2,7 @@ extends Node2D
 
 @export var fire_rate: float = 1.0
 var debounce: Timer
+var direction: Vector2 = Vector2.UP
 @onready var weapon = $weapon
 
 func _ready():
@@ -15,7 +16,7 @@ func fire():
 	if is_on_cooldown(): return
 	debounce.start()
 	
-	weapon.fire()
+	weapon.fire(direction)
 
 func is_on_cooldown():
 	return !debounce.is_stopped()

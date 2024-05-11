@@ -13,4 +13,5 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 func fire():
-	weapon.fire()
+	var mouse_direction = global_position.direction_to(get_global_mouse_position())
+	weapon.fire(mouse_direction)
