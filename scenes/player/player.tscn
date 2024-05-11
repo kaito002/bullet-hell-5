@@ -44,7 +44,7 @@ _data = {
 "idle": SubResource("Animation_m8nav")
 }
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_sd1rj")
 
