@@ -17,7 +17,7 @@ func fire():
 	weapon.fire(mouse_direction)
 
 func hit():
-	game_over()
+	call_deferred("game_over")
 
 func game_over():
 	get_tree().reload_current_scene()
