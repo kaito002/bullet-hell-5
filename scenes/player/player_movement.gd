@@ -15,3 +15,9 @@ func _physics_process(_delta):
 func fire():
 	var mouse_direction = global_position.direction_to(get_global_mouse_position())
 	weapon.fire(mouse_direction)
+
+func hit():
+	game_over()
+
+func game_over():
+	get_tree().reload_current_scene()
