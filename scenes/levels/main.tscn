@@ -90,6 +90,10 @@ fire_rate = 0.01
 [node name="weapon" parent="spawner" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("4_13t6y")
 
+[node name="weapon2" parent="spawner" instance=ExtResource("3_wy0nk")]
+bullet_scene = ExtResource("4_13t6y")
+direction = Vector2(-1, -1)
+
 [node name="ui" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("7_wjp1r")

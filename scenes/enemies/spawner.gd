@@ -4,6 +4,7 @@ extends Node2D
 var debounce: Timer
 var direction: Vector2 = Vector2.UP
 @onready var weapon = $weapon
+@onready var weapon_2 = $weapon2
 
 func _ready():
 	debounce = Timer.new()
@@ -17,6 +18,7 @@ func fire():
 	debounce.start()
 	
 	weapon.fire(direction)
+	weapon_2.fire()
 
 func is_on_cooldown():
 	return !debounce.is_stopped()
