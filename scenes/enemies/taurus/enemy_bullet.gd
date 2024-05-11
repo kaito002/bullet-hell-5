@@ -14,4 +14,3 @@ func _on_body_entered(body: Node):
 	
 func _exit_tree():
 	rotation_tween.kill()
-	print("removing ", name)
