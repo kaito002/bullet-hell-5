@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy8yxfuap688r"]
+[gd_scene load_steps=10 format=3 uid="uid://cy8yxfuap688r"]
 
 [ext_resource type="PackedScene" uid="uid://crlrot03hgdlh" path="res://scenes/player/player.tscn" id="1_0ntqu"]
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="2_r0r3j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tlhnks1d8vwq" path="res://scenes/weapons/bullet.tscn" id="4_13t6y"]
 [ext_resource type="Script" path="res://scripts/dead_zone.gd" id="5_oey0e"]
 [ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="6_ic8bt"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="7_wjp1r"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u4h1g"]
 distance = -4.0
@@ -87,5 +88,9 @@ fire_rate = 0.01
 
 [node name="weapon" parent="spawner" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("4_13t6y")
+
+[node name="ui" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("7_wjp1r")
 
 [connection signal="area_entered" from="dead_zone" to="dead_zone" method="_on_area_entered"]
