@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy8yxfuap688r"]
+[gd_scene load_steps=11 format=3 uid="uid://cy8yxfuap688r"]
 
 [ext_resource type="PackedScene" uid="uid://crlrot03hgdlh" path="res://scenes/player/player.tscn" id="1_0ntqu"]
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="2_r0r3j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/dead_zone.gd" id="5_oey0e"]
 [ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="6_ic8bt"]
 [ext_resource type="Script" path="res://scenes/ui.gd" id="7_wjp1r"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu_button.gd" id="8_w4o0v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u4h1g"]
 distance = -4.0
@@ -93,4 +94,39 @@ bullet_scene = ExtResource("4_13t6y")
 process_mode = 3
 script = ExtResource("7_wjp1r")
 
+[node name="pause_menu" type="Control" parent="ui"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="PanelContainer" parent="ui/pause_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_menu_button" type="Button" parent="ui/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "RETURN TO MAIN MENU"
+script = ExtResource("8_w4o0v")
+
 [connection signal="area_entered" from="dead_zone" to="dead_zone" method="_on_area_entered"]
+[connection signal="pressed" from="ui/pause_menu/main_menu_button" to="ui/pause_menu/main_menu_button" method="_on_pressed"]
