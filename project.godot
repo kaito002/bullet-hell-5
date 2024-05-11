@@ -57,6 +57,7 @@ fire={
 [layer_names]
 
 2d_physics/layer_4="player_bullets"
+2d_physics/layer_5="enemy_bullets"
 2d_physics/layer_16="DeadZone"
 
 [rendering]
