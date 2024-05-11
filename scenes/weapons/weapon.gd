@@ -2,11 +2,14 @@ class_name Weapon
 extends Node2D
 
 @export var bullet_scene: PackedScene
+@export var direction: Vector2 = Vector2.UP
 @onready var debounce: Timer = $debounce
 
-var direction: Vector2 = Vector2.UP
+func _ready():
+	direction = direction.normalized()
 
-func fire(target_direction: Vector2):
+
+func fire(target_direction: Vector2 = direction):
 	if is_on_cooldown(): return
 	debounce.start()
 	
