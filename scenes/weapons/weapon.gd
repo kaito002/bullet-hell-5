@@ -10,7 +10,7 @@ func fire():
 	
 	var bullet: Bullet = bullet_scene.instantiate()
 	bullet.global_position = global_position
-	get_tree().root.add_child(bullet, true)
+	get_tree().root.add_child.call_deferred(bullet, true)
 
 func is_on_cooldown():
 	return !debounce.is_stopped()
