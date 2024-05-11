@@ -13,6 +13,8 @@ func fire(target_direction: Vector2):
 	var bullet: Bullet = bullet_scene.instantiate()
 	bullet.global_position = global_position
 	bullet.direction = target_direction
+	bullet.rotation = target_direction.angle()
+	bullet.rotation_degrees += 90
 	get_tree().root.add_child.call_deferred(bullet, true)
 
 func is_on_cooldown():
