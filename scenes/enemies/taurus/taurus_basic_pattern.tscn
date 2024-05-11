@@ -6,21 +6,4 @@
 [node name="taurus_basic_pattern" type="Node2D"]
 script = ExtResource("1_jcfws")
 bullet_scene = ExtResource("2_e852x")
-
-[node name="direction_01" type="RayCast2D" parent="."]
-target_position = Vector2(-10, 0)
-
-[node name="direction_02" type="RayCast2D" parent="."]
-target_position = Vector2(-10, 10)
-
-[node name="direction_03" type="RayCast2D" parent="."]
-target_position = Vector2(0, 10)
-
-[node name="direction_04" type="RayCast2D" parent="."]
-target_position = Vector2(10, 10)
-
-[node name="direction_05" type="RayCast2D" parent="."]
-target_position = Vector2(10, 0)
-
-[node name="direction_06" type="RayCast2D" parent="."]
-target_position = Vector2(10, 0)
+directions = Array[Vector2]([Vector2(-1, 0), Vector2(-1, -1), Vector2(0, -1), Vector2(1, -1), Vector2(1, 0)])

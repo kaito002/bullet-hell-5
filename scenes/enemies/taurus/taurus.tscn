@@ -184,8 +184,10 @@ autoplay = "idle"
 script = ExtResource("6_fxig0")
 
 [node name="fire_rate" type="Timer" parent="taurus_weapon"]
-autostart = true
+wait_time = 0.5
 
 [node name="taurus_basic_pattern" type="Node2D" parent="taurus_weapon"]
+rotation = -0.174533
 script = ExtResource("8_5dt8i")
 bullet_scene = ExtResource("8_xmsle")
+directions = Array[Vector2]([Vector2(-1, 0), Vector2(-1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(1, 0), Vector2(-1, -1), Vector2(1, -1), Vector2(0, -1)])

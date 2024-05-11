@@ -25,7 +25,6 @@ speed = 450.0
 
 [node name="weapon" parent="player" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("4_13t6y")
-fire_rate = 30.0
 
 [node name="dead_zone" type="Area2D" parent="."]
 collision_layer = 32768
@@ -91,12 +90,10 @@ fire_rate = 0.01
 
 [node name="weapon" parent="spawner" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("7_sac4d")
-fire_rate = 1.0
 
 [node name="weapon2" parent="spawner" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("7_sac4d")
 direction = Vector2(-1, -1)
-fire_rate = 1.0
 
 [node name="ui" type="CanvasLayer" parent="."]
 process_mode = 3
