@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy8yxfuap688r"]
+[gd_scene load_steps=15 format=3 uid="uid://cy8yxfuap688r"]
 
 [ext_resource type="PackedScene" uid="uid://crlrot03hgdlh" path="res://scenes/player/player.tscn" id="1_0ntqu"]
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="2_r0r3j"]
@@ -8,7 +8,10 @@
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="7_wjp1r"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu_button.gd" id="8_w4o0v"]
 [ext_resource type="PackedScene" uid="uid://by2dpsnrjco44" path="res://scenes/enemies/taurus/taurus.tscn" id="9_a3gkv"]
+[ext_resource type="PackedScene" uid="uid://s8ky14omwdpg" path="res://scenes/enemies/picis/Picis.tscn" id="10_hplg1"]
 [ext_resource type="Script" path="res://scenes/ui/lives_label.gd" id="10_ri3ta"]
+[ext_resource type="PackedScene" uid="uid://d3p4cenr7c2s2" path="res://scenes/enemies/geminis/geminis_sun.tscn" id="11_kpvud"]
+[ext_resource type="PackedScene" uid="uid://1s48axyoxqjq" path="res://scenes/enemies/geminis/geminis_moon.tscn" id="12_axgxq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u4h1g"]
 distance = -4.0
@@ -134,10 +137,16 @@ text = "LIVES: 5"
 script = ExtResource("10_ri3ta")
 
 [node name="Taurus" parent="." instance=ExtResource("9_a3gkv")]
-position = Vector2(477, 355)
+position = Vector2(327, 348)
 
-[node name="Taurus2" parent="." instance=ExtResource("9_a3gkv")]
-position = Vector2(1514, 352)
+[node name="Picis" parent="." instance=ExtResource("10_hplg1")]
+position = Vector2(914, 285)
+
+[node name="Geminis_Sun" parent="." instance=ExtResource("11_kpvud")]
+position = Vector2(1575, 336)
+
+[node name="GeminisMoon" parent="Geminis_Sun" instance=ExtResource("12_axgxq")]
+position = Vector2(5, -6)
 
 [connection signal="area_entered" from="dead_zone" to="dead_zone" method="_on_area_entered"]
 [connection signal="pressed" from="ui/pause_menu/main_menu_button" to="ui/pause_menu/main_menu_button" method="_on_pressed"]
