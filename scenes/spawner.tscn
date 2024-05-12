@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwdo1bxg5kvoi"]
+
+[ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="1_56vox"]
+[ext_resource type="PackedScene" uid="uid://dnhti2qkhw45m" path="res://scenes/weapons/weapon.tscn" id="2_06nt7"]
+[ext_resource type="PackedScene" uid="uid://dxio33pyvaxh" path="res://scenes/enemies/taurus/taurus_bullet.tscn" id="3_2o4e7"]
+
+[node name="spawner" type="Node2D"]
+position = Vector2(1533, 967)
+script = ExtResource("1_56vox")
+fire_rate = 0.01
+
+[node name="weapon" parent="." instance=ExtResource("2_06nt7")]
+bullet_scene = ExtResource("3_2o4e7")
+fire_rate = 1.0
+
+[node name="weapon2" parent="." instance=ExtResource("2_06nt7")]
+bullet_scene = ExtResource("3_2o4e7")
+direction = Vector2(-1, -1)
+fire_rate = 1.0
