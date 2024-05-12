@@ -6,7 +6,7 @@
 script = ExtResource("1_gkqf3")
 
 [node name="tilt_timer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true
 
 [connection signal="timeout" from="tilt_timer" to="." method="_on_tilt_timer_timeout"]
