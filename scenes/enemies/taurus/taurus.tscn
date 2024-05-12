@@ -16,7 +16,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head:position")
+tracks/0/path = NodePath("Art/Head:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:scale")
+tracks/1/path = NodePath("Art/Body:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +40,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LeftArm:rotation")
+tracks/2/path = NodePath("Art/LeftArm:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -52,7 +52,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("RightArm:rotation")
+tracks/3/path = NodePath("Art/RightArm:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -64,7 +64,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Cloud:scale")
+tracks/4/path = NodePath("Art/Cloud:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -80,7 +80,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head:position")
+tracks/0/path = NodePath("Art/Head:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -92,7 +92,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body:scale")
+tracks/1/path = NodePath("Art/Body:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -104,7 +104,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LeftArm:rotation")
+tracks/2/path = NodePath("Art/LeftArm:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -116,7 +116,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("RightArm:rotation")
+tracks/3/path = NodePath("Art/RightArm:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -128,7 +128,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Cloud:scale")
+tracks/4/path = NodePath("Art/Cloud:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -152,37 +152,40 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_5rr1m")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Art" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Art"]
 position = Vector2(0, -58)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_e1vch")
 offset = Vector2(2, 39)
 
-[node name="Cloud" type="Sprite2D" parent="."]
+[node name="Cloud" type="Sprite2D" parent="Art"]
 position = Vector2(0, 70)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_7xhhk")
 offset = Vector2(6, -122)
 
-[node name="LeftArm" type="Sprite2D" parent="."]
+[node name="LeftArm" type="Sprite2D" parent="Art"]
 position = Vector2(-66, -88)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_3xy23")
 offset = Vector2(99, 78)
 
-[node name="RightArm" type="Sprite2D" parent="."]
+[node name="RightArm" type="Sprite2D" parent="Art"]
 position = Vector2(72, -86)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_dq33s")
 offset = Vector2(-96, 81)
 
-[node name="Head" type="Sprite2D" parent="."]
+[node name="Head" type="Sprite2D" parent="Art"]
 position = Vector2(-2, -143)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_gohkj")
 offset = Vector2(4, 151)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Art"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_4cg3g")
 }
