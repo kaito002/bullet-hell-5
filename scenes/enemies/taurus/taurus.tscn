@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://by2dpsnrjco44"]
+[gd_scene load_steps=17 format=3 uid="uid://by2dpsnrjco44"]
 
 [ext_resource type="Script" path="res://scenes/enemies/taurus/taurus.gd" id="1_5rr1m"]
 [ext_resource type="Texture2D" uid="uid://8erjbla3em8q" path="res://assets/taurus/Taurus-1.png" id="1_e1vch"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scenes/enemies/taurus/taurus_basic_pattern.gd" id="8_5dt8i"]
 [ext_resource type="PackedScene" uid="uid://dxio33pyvaxh" path="res://scenes/enemies/taurus/taurus_bullet.tscn" id="8_xmsle"]
 [ext_resource type="PackedScene" uid="uid://dmffaeox4rhs4" path="res://scenes/components/health_component.tscn" id="9_nkl7v"]
+[ext_resource type="PackedScene" uid="uid://bg8kepaxmuxfp" path="res://scenes/components/state_machine/finite_state_machine.tscn" id="11_riya7"]
+[ext_resource type="Script" path="res://scenes/components/state_machine/states/move_and_shoot.gd" id="12_rmos5"]
 
 [sub_resource type="Animation" id="Animation_08eag"]
 length = 0.001
@@ -209,3 +211,9 @@ shape = SubResource("CircleShape2D_jk0ex")
 
 [node name="health_component" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("9_nkl7v")]
 parent = NodePath("..")
+
+[node name="FiniteStateMachine" parent="." node_paths=PackedStringArray("current_state") instance=ExtResource("11_riya7")]
+current_state = NodePath("move_and_shoot")
+
+[node name="move_and_shoot" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("12_rmos5")

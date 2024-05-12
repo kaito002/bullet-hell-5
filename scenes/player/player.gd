@@ -8,6 +8,7 @@ var direction: Vector2 = Vector2.ZERO
 
 func _ready():
 	Globals.lives = 5
+	Globals.player = get_node(".")
 
 func _physics_process(_delta):
 	velocity = direction * speed

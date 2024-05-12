@@ -1,9 +1,8 @@
 class_name FiniteStateMachine
 extends Node
 
-@export var node: Node2D
 @export var current_state: State
-
+var node: Node2D
 signal state_name
 
 var states: Array[State]
