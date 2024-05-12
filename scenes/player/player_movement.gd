@@ -2,7 +2,6 @@ class_name PlayerMovement
 extends CharacterBody2D
 
 @onready var weapon: Weapon = $weapon
-
 @export var speed: float = 300.0
 
 var direction: Vector2 = Vector2.ZERO
@@ -17,7 +16,9 @@ func fire():
 	weapon.fire(mouse_direction)
 
 func hit():
-	call_deferred("game_over")
+	Globals.lives -= 1
+	if Globals.lives <= 0:
+		call_deferred("game_over")
 
 func game_over():
 	get_tree().reload_current_scene()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy8yxfuap688r"]
+[gd_scene load_steps=13 format=3 uid="uid://cy8yxfuap688r"]
 
 [ext_resource type="PackedScene" uid="uid://crlrot03hgdlh" path="res://scenes/player/player.tscn" id="1_0ntqu"]
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="2_r0r3j"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dxio33pyvaxh" path="res://scenes/enemies/taurus/taurus_bullet.tscn" id="7_sac4d"]
 [ext_resource type="Script" path="res://scenes/ui.gd" id="7_wjp1r"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu_button.gd" id="8_w4o0v"]
+[ext_resource type="Script" path="res://scenes/levels/lives_label.gd" id="10_ri3ta"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u4h1g"]
 distance = -4.0
@@ -25,6 +26,7 @@ speed = 450.0
 
 [node name="weapon" parent="player" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("4_13t6y")
+fire_rate = 30.0
 
 [node name="dead_zone" type="Area2D" parent="."]
 collision_layer = 32768
@@ -90,10 +92,12 @@ fire_rate = 0.01
 
 [node name="weapon" parent="spawner" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("7_sac4d")
+fire_rate = 1.0
 
 [node name="weapon2" parent="spawner" instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("7_sac4d")
 direction = Vector2(-1, -1)
+fire_rate = 1.0
 
 [node name="ui" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -132,6 +136,17 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "RETURN TO MAIN MENU"
 script = ExtResource("8_w4o0v")
+
+[node name="lives_label" type="Label" parent="ui"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 75
+text = "LIVES: 5"
+script = ExtResource("10_ri3ta")
 
 [connection signal="area_entered" from="dead_zone" to="dead_zone" method="_on_area_entered"]
 [connection signal="pressed" from="ui/pause_menu/main_menu_button" to="ui/pause_menu/main_menu_button" method="_on_pressed"]
