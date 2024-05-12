@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://s8ky14omwdpg"]
+[gd_scene load_steps=12 format=3 uid="uid://s8ky14omwdpg"]
 
 [ext_resource type="Texture2D" uid="uid://cqfqw6g5fyk3s" path="res://assets/picis/tail.png" id="1_24goj"]
 [ext_resource type="Texture2D" uid="uid://c4xhcqc6crdal" path="res://assets/picis/body.png" id="2_k4ppa"]
@@ -6,6 +6,69 @@
 [ext_resource type="Texture2D" uid="uid://dj28ueqf5b5k1" path="res://assets/picis/head.png" id="4_iipxq"]
 [ext_resource type="Texture2D" uid="uid://dj6uu853e71ys" path="res://assets/picis/left_arm.png" id="5_xxq6b"]
 [ext_resource type="Texture2D" uid="uid://ca7vlhe2syoy6" path="res://assets/picis/right_arm.png" id="6_07567"]
+
+[sub_resource type="Animation" id="Animation_dusje"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0132513]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tail:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cloud:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_fswud"]
 resource_name = "idle"
@@ -71,76 +134,22 @@ tracks/4/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_dusje"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LeftArm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RightArm:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.0132513]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Tail:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cloud:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2tm6d"]
 _data = {
 "RESET": SubResource("Animation_dusje"),
 "idle": SubResource("Animation_fswud")
 }
 
-[node name="Picis" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f77p3"]
+radius = 87.0
+height = 344.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ydi71"]
+radius = 116.0
+
+[node name="Picis" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Tail" type="Sprite2D" parent="."]
 position = Vector2(75, 119)
@@ -177,3 +186,11 @@ offset = Vector2(-33, -152)
 libraries = {
 "": SubResource("AnimationLibrary_2tm6d")
 }
+autoplay = "idle"
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_f77p3")
+
+[node name="TailCollision" type="CollisionShape2D" parent="."]
+position = Vector2(78, 55)
+shape = SubResource("CircleShape2D_ydi71")
