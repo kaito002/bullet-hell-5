@@ -1,9 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3p4cenr7c2s2"]
+[gd_scene load_steps=9 format=3 uid="uid://d3p4cenr7c2s2"]
 
 [ext_resource type="Script" path="res://scenes/enemies/geminis/geminis_sun.gd" id="1_22gkt"]
 [ext_resource type="Texture2D" uid="uid://bshnniwijule2" path="res://assets/geminis/Geminis-1.png" id="1_x8ogi"]
 [ext_resource type="Texture2D" uid="uid://cuobn2l7mh638" path="res://assets/geminis/Geminis-2.png" id="2_i6nx4"]
 [ext_resource type="PackedScene" uid="uid://dmffaeox4rhs4" path="res://scenes/components/health_component.tscn" id="3_5rs4p"]
+
+[sub_resource type="Animation" id="Animation_x22m7"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Geminis-1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.436332, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jv330"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Geminis-1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wp087"]
+_data = {
+"RESET": SubResource("Animation_jv330"),
+"idle": SubResource("Animation_x22m7")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j736v"]
 radius = 154.003
@@ -13,14 +50,23 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_22gkt")
 
+[node name="Art" type="Node2D" parent="."]
+
+[node name="Geminis-1" type="Sprite2D" parent="Art"]
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("1_x8ogi")
+
+[node name="Geminis-2" type="Sprite2D" parent="Art"]
+texture = ExtResource("2_i6nx4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Art"]
+libraries = {
+"": SubResource("AnimationLibrary_wp087")
+}
+autoplay = "idle"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -23)
 shape = SubResource("CircleShape2D_j736v")
-
-[node name="Geminis-1" type="Sprite2D" parent="."]
-texture = ExtResource("1_x8ogi")
-
-[node name="Geminis-2" type="Sprite2D" parent="."]
-texture = ExtResource("2_i6nx4")
 
 [node name="health_component" parent="." instance=ExtResource("3_5rs4p")]

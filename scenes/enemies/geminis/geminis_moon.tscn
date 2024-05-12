@@ -4,5 +4,7 @@
 
 [node name="GeminisMoon" type="Node2D"]
 
-[node name="Geminis-3" type="Sprite2D" parent="."]
+[node name="Art" type="Node2D" parent="."]
+
+[node name="Geminis-3" type="Sprite2D" parent="Art"]
 texture = ExtResource("1_kjlo8")

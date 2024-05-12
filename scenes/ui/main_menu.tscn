@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyoevvxykhoi"]
+[gd_scene load_steps=2 format=3 uid="uid://dyoevvxykhoi"]
 
 [ext_resource type="Script" path="res://scenes/ui/start_game_button.gd" id="1_3h2kf"]
-[ext_resource type="PackedScene" uid="uid://cy8yxfuap688r" path="res://scenes/levels/main.tscn" id="2_ewvih"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -26,6 +25,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "PLAY GAME"
 script = ExtResource("1_3h2kf")
-game_scene = ExtResource("2_ewvih")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/start_game_button" to="VBoxContainer/PanelContainer/start_game_button" method="_on_pressed"]
