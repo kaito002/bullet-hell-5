@@ -1,14 +1,7 @@
 class_name TaurusBullet
-extends Bullet
+extends EnemyBullet
 
 @onready var sprite: Sprite2D = $NoseRing
 
-func _process(delta: float) -> void:
+func _process(delta: float):
 	sprite.rotate(2*PI * delta)
-	position += speed * direction * delta
-
-
-func _on_body_entered(body):
-	if body.is_in_group("player"):
-		body.hit()
-		call_deferred("queue_free")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://tlhnks1d8vwq"]
 
 [ext_resource type="Texture2D" uid="uid://dbygkwyu1xo2n" path="res://assets/bullet.png" id="1_8whc4"]
-[ext_resource type="Script" path="res://scenes/weapons/bullet.gd" id="2_fv5xu"]
+[ext_resource type="Script" path="res://scenes/weapons/player_bullet.gd" id="1_xg8lk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ug7ts"]
 radius = 82.5807
@@ -12,7 +12,7 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.18, 0.18)
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("2_fv5xu")
+script = ExtResource("1_xg8lk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 0)
