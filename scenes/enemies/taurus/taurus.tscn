@@ -147,9 +147,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_jk0ex"]
 radius = 153.395
 
-[node name="Taurus" type="Area2D"]
+[node name="Taurus" type="Area2D" groups=["enemies"]]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 0
 script = ExtResource("1_5rr1m")
 
 [node name="Body" type="Sprite2D" parent="."]
@@ -207,5 +207,3 @@ shape = SubResource("CircleShape2D_jk0ex")
 [node name="health_component" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("9_nkl7v")]
 lives = 10
 parent = NodePath("..")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

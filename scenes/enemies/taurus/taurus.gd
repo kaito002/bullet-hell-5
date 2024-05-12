@@ -3,5 +3,5 @@ extends Area2D
 
 
 
-func _on_area_entered(_area):
+func hit():
 	health_component.hit()
