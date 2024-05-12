@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://crlrot03hgdlh"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_sd1rj"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tvi0w"]
 [ext_resource type="Texture2D" uid="uid://bnee1tpifbovy" path="res://assets/icon.svg" id="2_1jxee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_655qa"]
@@ -46,7 +46,7 @@ _data = {
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
-script = ExtResource("1_sd1rj")
+script = ExtResource("1_tvi0w")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
