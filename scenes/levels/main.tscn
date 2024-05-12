@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://scripts/dead_zone.gd" id="5_oey0e"]
 [ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="6_ic8bt"]
 [ext_resource type="PackedScene" uid="uid://dxio33pyvaxh" path="res://scenes/enemies/taurus/taurus_bullet.tscn" id="7_sac4d"]
-[ext_resource type="Script" path="res://scenes/ui.gd" id="7_wjp1r"]
+[ext_resource type="Script" path="res://scenes/ui/ui.gd" id="7_wjp1r"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu_button.gd" id="8_w4o0v"]
-[ext_resource type="Script" path="res://scenes/levels/lives_label.gd" id="10_ri3ta"]
+[ext_resource type="Script" path="res://scenes/ui/lives_label.gd" id="10_ri3ta"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u4h1g"]
 distance = -4.0
