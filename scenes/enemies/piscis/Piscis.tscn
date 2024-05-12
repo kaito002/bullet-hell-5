@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://s8ky14omwdpg"]
+[gd_scene load_steps=14 format=3 uid="uid://s8ky14omwdpg"]
 
 [ext_resource type="Texture2D" uid="uid://cqfqw6g5fyk3s" path="res://assets/picis/tail.png" id="1_24goj"]
 [ext_resource type="Script" path="res://scenes/enemies/piscis/piscis.gd" id="1_as23b"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dj28ueqf5b5k1" path="res://assets/picis/head.png" id="4_iipxq"]
 [ext_resource type="Texture2D" uid="uid://dj6uu853e71ys" path="res://assets/picis/left_arm.png" id="5_xxq6b"]
 [ext_resource type="Texture2D" uid="uid://ca7vlhe2syoy6" path="res://assets/picis/right_arm.png" id="6_07567"]
+[ext_resource type="PackedScene" uid="uid://dmffaeox4rhs4" path="res://scenes/components/health_component.tscn" id="8_vduq8"]
 
 [sub_resource type="Animation" id="Animation_dusje"]
 length = 0.001
@@ -196,3 +197,5 @@ shape = SubResource("CapsuleShape2D_f77p3")
 [node name="TailCollision" type="CollisionShape2D" parent="."]
 position = Vector2(78, 55)
 shape = SubResource("CircleShape2D_ydi71")
+
+[node name="health_component" parent="." instance=ExtResource("8_vduq8")]

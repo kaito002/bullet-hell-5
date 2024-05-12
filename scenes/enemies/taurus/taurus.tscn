@@ -205,5 +205,4 @@ directions = Array[Vector2]([Vector2(-1, 0), Vector2(-1, 1), Vector2(0, 1), Vect
 shape = SubResource("CircleShape2D_jk0ex")
 
 [node name="health_component" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("9_nkl7v")]
-lives = 10
 parent = NodePath("..")
