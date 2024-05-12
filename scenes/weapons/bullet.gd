@@ -8,7 +8,7 @@ func _physics_process(delta):
 	position += direction * speed * delta
 
 
-func _on_area_entered(area):
+func _on_area_entered(area: Node):
 	if area.is_in_group("enemies"):
-		area.hit()
+		area.get_node("./health_component").hit()
 		call_deferred("queue_free")
