@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://s8ky14omwdpg"]
+[gd_scene load_steps=13 format=3 uid="uid://s8ky14omwdpg"]
 
 [ext_resource type="Texture2D" uid="uid://cqfqw6g5fyk3s" path="res://assets/picis/tail.png" id="1_24goj"]
+[ext_resource type="Script" path="res://scenes/enemies/piscis/piscis.gd" id="1_as23b"]
 [ext_resource type="Texture2D" uid="uid://c4xhcqc6crdal" path="res://assets/picis/body.png" id="2_k4ppa"]
 [ext_resource type="Texture2D" uid="uid://2xq7kurq8s30" path="res://assets/picis/cloud.png" id="3_lhkbs"]
 [ext_resource type="Texture2D" uid="uid://dj28ueqf5b5k1" path="res://assets/picis/head.png" id="4_iipxq"]
@@ -147,9 +148,10 @@ height = 344.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydi71"]
 radius = 116.0
 
-[node name="Picis" type="Area2D"]
+[node name="Piscis" type="Area2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("1_as23b")
 
 [node name="Tail" type="Sprite2D" parent="."]
 position = Vector2(75, 119)
