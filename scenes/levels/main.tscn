@@ -148,5 +148,8 @@ position = Vector2(1575, 336)
 [node name="GeminisMoon" parent="Geminis_Sun" instance=ExtResource("12_axgxq")]
 position = Vector2(5, -6)
 
+[node name="Bullets" type="Node" parent="."]
+unique_name_in_owner = true
+
 [connection signal="area_entered" from="dead_zone" to="dead_zone" method="_on_area_entered"]
 [connection signal="pressed" from="ui/pause_menu/main_menu_button" to="ui/pause_menu/main_menu_button" method="_on_pressed"]

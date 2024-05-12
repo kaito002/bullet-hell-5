@@ -22,8 +22,9 @@ func is_on_cooldown():
 
 func build_bullet(target_direction):
 	var bullet: Bullet = bullet_scene.instantiate()
+	bullet.position = global_position
 	bullet.direction = target_direction
 	bullet.rotation = target_direction.angle()
 	bullet.rotation_degrees += 90
-	add_child.call_deferred(bullet, true)
+	%Bullets.add_child.call_deferred(bullet, true)
 	
