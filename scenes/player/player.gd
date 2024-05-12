@@ -1,4 +1,4 @@
-class_name PlayerMovement
+class_name Player
 extends CharacterBody2D
 
 @onready var weapon: Weapon = $weapon
@@ -7,7 +7,6 @@ extends CharacterBody2D
 var direction: Vector2 = Vector2.ZERO
 
 func _physics_process(_delta):
-	
 	velocity = direction * speed
 	move_and_slide()
 	
