@@ -1,8 +1,9 @@
 class_name HealthComponent
 extends Node
 
-@onready var tilt_timer: Timer = $tilt_timer
+signal health_percentage(percentage: float)
 
+@onready var tilt_timer: Timer = $tilt_timer
 @export var parent: Node
 @export var max_lives: int = 50
 var lives: int
@@ -16,6 +17,7 @@ func _ready():
 func hit():
 	lives  = max(0, lives - 1)
 	_on_hit()
+	health_percentage.emit(get_health_percentage())
 	if lives == 0:
 		death()
 
@@ -30,12 +32,16 @@ func _on_tilt_timer_timeout() -> void:
 	body.modulate = Color("ffffff")
 	
 func get_color() -> Color:
-	var health_percentage: float = (float(lives)/max_lives) * 100
+	var health_perc: float = get_health_percentage()
 	#print("max lives: ", max_lives, " | lives: ", lives, " | percentage: ", health_percentage)
 	
-	if health_percentage > 70:
+	if health_perc > 70:
 		return Color.GREEN_YELLOW
-	elif health_percentage > 30:
+	elif health_perc > 30:
 		return Color.YELLOW
 	else:
 		return Color.RED
+
+func get_health_percentage():
+	print((float(lives)/max_lives) * 100)
+	return (float(lives)/max_lives) * 100
