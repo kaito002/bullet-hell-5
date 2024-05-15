@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dskjbmnns2ral" path="res://assets/taurus/Taurus-3.png" id="3_7xhhk"]
 [ext_resource type="Texture2D" uid="uid://bnecnretp4ool" path="res://assets/taurus/Taurus-4.png" id="4_3xy23"]
 [ext_resource type="Texture2D" uid="uid://5x7uc86gah5o" path="res://assets/taurus/Taurus-5.png" id="5_dq33s"]
-[ext_resource type="Script" path="res://scenes/enemies/taurus/taurus_weapon.gd" id="6_fxig0"]
+[ext_resource type="Script" path="res://scenes/enemies/boss_weapon.gd" id="6_fxig0"]
 [ext_resource type="Script" path="res://scenes/enemies/taurus/taurus_basic_pattern.gd" id="8_5dt8i"]
 [ext_resource type="PackedScene" uid="uid://dxio33pyvaxh" path="res://scenes/enemies/taurus/taurus_bullet.tscn" id="8_xmsle"]
 [ext_resource type="PackedScene" uid="uid://dmffaeox4rhs4" path="res://scenes/components/health_component.tscn" id="9_nkl7v"]

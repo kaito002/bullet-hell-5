@@ -1,1 +1,8 @@
-extends Area2D
+class_name Picis
+extends Boss
+
+
+
+
+
+

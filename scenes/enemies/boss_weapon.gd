@@ -1,3 +1,4 @@
+class_name BossWeapon
 extends Node2D
 
 @onready var fire_rate: Timer = $fire_rate

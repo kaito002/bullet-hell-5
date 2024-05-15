@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://csphrilt0rk71"]
+
+[ext_resource type="Texture2D" uid="uid://byv4yc22p4nmk" path="res://assets/picis/level/water_pulse_01.png" id="1_o38j3"]
+[ext_resource type="Texture2D" uid="uid://bbkpaisxk8nu2" path="res://assets/picis/level/water_pulse_02.png" id="2_ruguu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qivvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o38j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ruguu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="water_pulse" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qivvd")
+autoplay = "default"
+frame_progress = 0.509762
