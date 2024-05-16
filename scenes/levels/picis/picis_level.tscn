@@ -1,9 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0uk1w3owlvv7"]
+[gd_scene load_steps=18 format=3 uid="uid://c0uk1w3owlvv7"]
 
 [ext_resource type="Texture2D" uid="uid://dv14lgwwmyngb" path="res://assets/Background.png" id="1_kolbb"]
 [ext_resource type="PackedScene" uid="uid://s8ky14omwdpg" path="res://scenes/enemies/piscis/Piscis.tscn" id="1_lpxks"]
 [ext_resource type="FontFile" uid="uid://dlrnj02kqy645" path="res://assets/fonts/Archivo_Black/ArchivoBlack-Regular.ttf" id="2_mmgot"]
 [ext_resource type="PackedScene" uid="uid://csphrilt0rk71" path="res://scenes/levels/picis/water_pulse.tscn" id="3_3jqcf"]
+[ext_resource type="PackedScene" uid="uid://crlrot03hgdlh" path="res://scenes/player/player.tscn" id="5_kv183"]
+[ext_resource type="PackedScene" uid="uid://dnhti2qkhw45m" path="res://scenes/weapons/weapon.tscn" id="6_8v5uj"]
+[ext_resource type="PackedScene" uid="uid://tlhnks1d8vwq" path="res://scenes/weapons/bullet.tscn" id="7_1uqwk"]
+[ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="7_6k342"]
 
 [sub_resource type="Animation" id="Animation_8gbeo"]
 resource_name = "show"
@@ -311,6 +315,9 @@ libraries = {
 
 [node name="Piscis" parent="." instance=ExtResource("1_lpxks")]
 
+[node name="fire_rate" parent="Piscis/picis_weapon" index="0"]
+wait_time = 0.25
+
 [node name="water_pulse6" parent="." instance=ExtResource("3_3jqcf")]
 position = Vector2(219, 1850)
 
@@ -333,4 +340,16 @@ position = Vector2(1771, 1850)
 libraries = {
 "": SubResource("AnimationLibrary_lfcil")
 }
-autoplay = "stage_03"
+
+[node name="player" parent="." instance=ExtResource("5_kv183")]
+position = Vector2(1235, 835)
+
+[node name="weapon" parent="player" instance=ExtResource("6_8v5uj")]
+bullet_scene = ExtResource("7_1uqwk")
+
+[node name="player_controller" parent="player" instance=ExtResource("7_6k342")]
+
+[node name="Bullets" type="Node" parent="."]
+unique_name_in_owner = true
+
+[editable path="Piscis"]

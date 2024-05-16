@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://j1hgp6jna1a0"]
+[gd_scene load_steps=5 format=3 uid="uid://j1hgp6jna1a0"]
 
+[ext_resource type="Script" path="res://scenes/weapons/enemy_bullet.gd" id="1_4no40"]
 [ext_resource type="Texture2D" uid="uid://cemk3ahllakb8" path="res://assets/picis/picis_bullet.png" id="1_fcqp6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_444rx"]
@@ -10,6 +11,7 @@ height = 64.5971
 size = Vector2(28.5714, 18.5714)
 
 [node name="picis_bullet" type="Area2D"]
+script = ExtResource("1_4no40")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -23,6 +25,5 @@ debug_color = Color(0.937241, 1.56906e-05, 0.628809, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(27.1429, 15)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qxhhj")
 debug_color = Color(0.946552, 4.33177e-06, 0.587269, 0.42)

@@ -375,6 +375,7 @@ autoplay = "intro"
 script = ExtResource("9_3wt0x")
 
 [node name="fire_rate" type="Timer" parent="picis_weapon"]
+wait_time = 0.5
 
 [node name="picis_basic_pattern" type="Node2D" parent="picis_weapon"]
 script = ExtResource("10_tpue7")
