@@ -1,29 +1,271 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyoevvxykhoi"]
+[gd_scene load_steps=24 format=3 uid="uid://dyoevvxykhoi"]
 
+[ext_resource type="Texture2D" uid="uid://dv14lgwwmyngb" path="res://assets/Background.png" id="1_3e2hf"]
 [ext_resource type="Script" path="res://scenes/ui/start_game_button.gd" id="1_3h2kf"]
+[ext_resource type="Texture2D" uid="uid://bshnniwijule2" path="res://assets/geminis/Geminis-1.png" id="2_fmceb"]
+[ext_resource type="Texture2D" uid="uid://dbamwpgl4ga6a" path="res://assets/ui_elements/rectangle_button.png" id="2_u6esp"]
+[ext_resource type="FontFile" uid="uid://dlrnj02kqy645" path="res://assets/fonts/Archivo_Black/ArchivoBlack-Regular.ttf" id="3_4tl4e"]
+[ext_resource type="Texture2D" uid="uid://cuobn2l7mh638" path="res://assets/geminis/Geminis-2.png" id="3_bdtqf"]
+[ext_resource type="PackedScene" uid="uid://dlgwsqn7mvfdd" path="res://scripts/ui_effects/button_scale_effect.tscn" id="3_vnn5h"]
+[ext_resource type="PackedScene" uid="uid://cf8qhvl77jwqy" path="res://scripts/ui_effects/button_sound_effect.tscn" id="4_3vn2c"]
+[ext_resource type="Texture2D" uid="uid://b3so7270emi13" path="res://assets/geminis/Geminis-3.png" id="4_bb74v"]
+[ext_resource type="Texture2D" uid="uid://cqfqw6g5fyk3s" path="res://assets/picis/tail.png" id="5_mk5gl"]
+[ext_resource type="AudioStream" uid="uid://oc4pml2k2xdh" path="res://assets/ui_elements/sounds/menu_button.mp3" id="5_wqdf8"]
+[ext_resource type="Texture2D" uid="uid://8erjbla3em8q" path="res://assets/taurus/Taurus-1.png" id="5_yf3er"]
+[ext_resource type="Texture2D" uid="uid://da8rru1nja4wl" path="res://assets/taurus/Taurus-2.png" id="6_icgo3"]
+[ext_resource type="Texture2D" uid="uid://c4xhcqc6crdal" path="res://assets/picis/body.png" id="6_pr8km"]
+[ext_resource type="Texture2D" uid="uid://dskjbmnns2ral" path="res://assets/taurus/Taurus-3.png" id="7_jmyxu"]
+[ext_resource type="Texture2D" uid="uid://2xq7kurq8s30" path="res://assets/picis/cloud.png" id="7_x10a5"]
+[ext_resource type="Texture2D" uid="uid://bnecnretp4ool" path="res://assets/taurus/Taurus-4.png" id="8_1knaf"]
+[ext_resource type="Texture2D" uid="uid://dj28ueqf5b5k1" path="res://assets/picis/head.png" id="8_cjt3j"]
+[ext_resource type="Texture2D" uid="uid://dj6uu853e71ys" path="res://assets/picis/left_arm.png" id="9_2c2q0"]
+[ext_resource type="Texture2D" uid="uid://5x7uc86gah5o" path="res://assets/taurus/Taurus-5.png" id="9_3sotw"]
+[ext_resource type="Texture2D" uid="uid://ca7vlhe2syoy6" path="res://assets/picis/right_arm.png" id="10_qfvyd"]
+[ext_resource type="Texture2D" uid="uid://jxa4wsa2d2mw" path="res://assets/slime/Ally.png" id="22_rvkb5"]
+[ext_resource type="Texture2D" uid="uid://dpqxj5srso3pa" path="res://assets/slime/Player.png" id="23_e2alc"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_3e2hf")
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="enemies" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="start_game_button" type="Button" parent="VBoxContainer/PanelContainer"]
+[node name="geminis" type="Control" parent="enemies"]
+anchors_preset = 0
+offset_left = 1148.0
+offset_top = -15.0
+offset_right = 1660.0
+offset_bottom = 497.0
+pivot_offset = Vector2(256, 256)
+
+[node name="Geminis-1" type="TextureRect" parent="enemies/geminis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("2_fmceb")
+
+[node name="Geminis-2" type="TextureRect" parent="enemies/geminis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("3_bdtqf")
+
+[node name="Geminis-3" type="TextureRect" parent="enemies/geminis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("4_bb74v")
+
+[node name="Taurus" type="Control" parent="enemies"]
+anchors_preset = 0
+offset_left = 919.0
+offset_top = 252.0
+offset_right = 1431.0
+offset_bottom = 764.0
+pivot_offset = Vector2(256, 256)
+
+[node name="Taurus-1" type="TextureRect" parent="enemies/Taurus"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("5_yf3er")
+
+[node name="Taurus-2" type="TextureRect" parent="enemies/Taurus"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("6_icgo3")
+
+[node name="Taurus-3" type="TextureRect" parent="enemies/Taurus"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("7_jmyxu")
+
+[node name="Taurus-4" type="TextureRect" parent="enemies/Taurus"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("8_1knaf")
+
+[node name="Taurus-5" type="TextureRect" parent="enemies/Taurus"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("9_3sotw")
+
+[node name="Piscis" type="Control" parent="enemies"]
+anchors_preset = 0
+offset_left = 1331.0
+offset_top = 188.0
+offset_right = 1843.0
+offset_bottom = 700.0
+pivot_offset = Vector2(256, 256)
+
+[node name="Tail" type="TextureRect" parent="enemies/Piscis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("5_mk5gl")
+
+[node name="Body" type="TextureRect" parent="enemies/Piscis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("6_pr8km")
+
+[node name="Cloud" type="TextureRect" parent="enemies/Piscis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("7_x10a5")
+
+[node name="Head" type="TextureRect" parent="enemies/Piscis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("8_cjt3j")
+
+[node name="LeftArm" type="TextureRect" parent="enemies/Piscis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("9_2c2q0")
+
+[node name="RightArm" type="TextureRect" parent="enemies/Piscis"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("10_qfvyd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.00833333
+anchor_top = 0.522222
+anchor_right = 0.275
+anchor_bottom = 0.760185
+offset_left = 74.0
+offset_top = -460.0
+offset_right = 74.0
+offset_bottom = -371.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="start_game_button" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "PLAY GAME"
+texture_normal = ExtResource("2_u6esp")
+stretch_mode = 3
 script = ExtResource("1_3h2kf")
 
-[connection signal="pressed" from="VBoxContainer/PanelContainer/start_game_button" to="VBoxContainer/PanelContainer/start_game_button" method="_on_pressed"]
+[node name="ButtonScaleEffect" parent="VBoxContainer/start_game_button" instance=ExtResource("3_vnn5h")]
+
+[node name="ButtonSoundEffect" parent="VBoxContainer/start_game_button" instance=ExtResource("4_3vn2c")]
+sfx_audio = ExtResource("5_wqdf8")
+
+[node name="Label" type="Label" parent="VBoxContainer/start_game_button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0976562
+anchor_top = 0.217899
+anchor_right = 0.902344
+anchor_bottom = 0.782101
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0285199
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_4tl4e")
+theme_override_font_sizes/font_size = 60
+text = "Start Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="credits_button" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 140)
+layout_mode = 2
+texture_normal = ExtResource("2_u6esp")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ButtonScaleEffect" parent="VBoxContainer/credits_button" instance=ExtResource("3_vnn5h")]
+
+[node name="ButtonSoundEffect" parent="VBoxContainer/credits_button" instance=ExtResource("4_3vn2c")]
+sfx_audio = ExtResource("5_wqdf8")
+
+[node name="Label" type="Label" parent="VBoxContainer/credits_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = -85.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0225723
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_4tl4e")
+theme_override_font_sizes/font_size = 45
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ally" type="TextureRect" parent="."]
+offset_left = 226.0
+offset_top = 727.0
+offset_right = 420.0
+offset_bottom = 921.0
+texture = ExtResource("22_rvkb5")
+expand_mode = 1
+
+[node name="Ally2" type="TextureRect" parent="."]
+offset_left = 121.0
+offset_top = 775.0
+offset_right = 315.0
+offset_bottom = 969.0
+texture = ExtResource("22_rvkb5")
+expand_mode = 1
+
+[node name="Ally4" type="TextureRect" parent="."]
+offset_left = 320.0
+offset_top = 840.0
+offset_right = 514.0
+offset_bottom = 1034.0
+texture = ExtResource("22_rvkb5")
+expand_mode = 1
+
+[node name="Ally5" type="TextureRect" parent="."]
+offset_left = 48.0
+offset_top = 874.0
+offset_right = 242.0
+offset_bottom = 1068.0
+texture = ExtResource("22_rvkb5")
+expand_mode = 1
+
+[node name="Ally3" type="TextureRect" parent="."]
+offset_left = 187.0
+offset_top = 863.0
+offset_right = 381.0
+offset_bottom = 1057.0
+texture = ExtResource("22_rvkb5")
+expand_mode = 1
+
+[node name="Player" type="TextureRect" parent="."]
+offset_left = 526.0
+offset_top = 823.0
+offset_right = 740.0
+offset_bottom = 1037.0
+texture = ExtResource("23_e2alc")
+expand_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/start_game_button" to="VBoxContainer/start_game_button" method="_on_pressed"]
