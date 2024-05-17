@@ -5,8 +5,8 @@ extends Boss
 
 
 func _ready() -> void:
-    super._ready()
-    finished_intro.connect(on_finished_intro)
+	super._ready()
+	finished_intro.connect(on_finished_intro)
 
 func on_finished_intro():
-    picis_weapon.start_shooting()
+	picis_weapon.start_shooting()
