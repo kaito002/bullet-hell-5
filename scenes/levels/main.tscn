@@ -138,7 +138,7 @@ script = ExtResource("10_ri3ta")
 [node name="Taurus" parent="." instance=ExtResource("9_a3gkv")]
 position = Vector2(327, 348)
 
-[node name="Picis" parent="." instance=ExtResource("10_hplg1")]
+[node name="Piscis" parent="." instance=ExtResource("10_hplg1")]
 
 [node name="Geminis_Sun" parent="." instance=ExtResource("11_kpvud")]
 position = Vector2(1575, 336)
