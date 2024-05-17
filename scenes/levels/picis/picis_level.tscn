@@ -1,28 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0uk1w3owlvv7"]
+[gd_scene load_steps=17 format=3 uid="uid://c0uk1w3owlvv7"]
 
 [ext_resource type="Texture2D" uid="uid://dv14lgwwmyngb" path="res://assets/Background.png" id="1_kolbb"]
 [ext_resource type="PackedScene" uid="uid://s8ky14omwdpg" path="res://scenes/enemies/piscis/Piscis.tscn" id="1_lpxks"]
+[ext_resource type="Script" path="res://scenes/levels/picis/picis_level.gd" id="1_otltk"]
 [ext_resource type="FontFile" uid="uid://dlrnj02kqy645" path="res://assets/fonts/Archivo_Black/ArchivoBlack-Regular.ttf" id="2_mmgot"]
 [ext_resource type="PackedScene" uid="uid://csphrilt0rk71" path="res://scenes/levels/picis/water_pulse.tscn" id="3_3jqcf"]
 [ext_resource type="PackedScene" uid="uid://crlrot03hgdlh" path="res://scenes/player/player.tscn" id="5_kv183"]
 [ext_resource type="PackedScene" uid="uid://dnhti2qkhw45m" path="res://scenes/weapons/weapon.tscn" id="6_8v5uj"]
 [ext_resource type="PackedScene" uid="uid://tlhnks1d8vwq" path="res://scenes/weapons/bullet.tscn" id="7_1uqwk"]
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="7_6k342"]
-
-[sub_resource type="Animation" id="Animation_8gbeo"]
-resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false, true, false]
-}
+[ext_resource type="Script" path="res://scenes/levels/picis/water_pulses.gd" id="9_adj0g"]
 
 [sub_resource type="Animation" id="Animation_gx57e"]
 length = 0.001
@@ -39,10 +26,40 @@ tracks/0/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_8gbeo"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nejia"]
 _data = {
 "RESET": SubResource("Animation_gx57e"),
 "show": SubResource("Animation_8gbeo")
+}
+
+[sub_resource type="Animation" id="Animation_x5wf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_e3026"]
@@ -61,186 +78,14 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_x5wf3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1gba"]
 _data = {
 "RESET": SubResource("Animation_x5wf3"),
 "intro": SubResource("Animation_e3026")
 }
 
-[sub_resource type="Animation" id="Animation_v471v"]
-resource_name = "stage_03"
-length = 9.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("water_pulse6:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(219, 1850), Vector2(219, 627), Vector2(219, 627), Vector2(219, 1850)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("water_pulse:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(527, 1850), Vector2(527, 1850), Vector2(527, 622), Vector2(527, 622)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("water_pulse2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(819, 1850), Vector2(819, 638), Vector2(819, 638), Vector2(819, 1850)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("water_pulse3:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1127, 1850), Vector2(1127, 1850), Vector2(1127, 627), Vector2(1127, 627)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("water_pulse4:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1445, 1850), Vector2(1445, 622), Vector2(1445, 622), Vector2(1445, 1850)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("water_pulse5:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = false
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 3, 6, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1771, 1850), Vector2(1771, 1850), Vector2(1771, 643), Vector2(1771, 643)]
-}
-
-[sub_resource type="Animation" id="Animation_j8vnx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("water_pulse6:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(219, 1850)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("water_pulse:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(527, 1850)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("water_pulse2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(819, 1850)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("water_pulse3:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1127, 1850)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("water_pulse4:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1445, 1850)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("water_pulse5:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1771, 1850)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfcil"]
-_data = {
-"RESET": SubResource("Animation_j8vnx"),
-"stage_03": SubResource("Animation_v471v")
-}
-
 [node name="PicisLevel" type="Node2D"]
+script = ExtResource("1_otltk")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -10
@@ -318,31 +163,9 @@ libraries = {
 [node name="fire_rate" parent="Piscis/picis_weapon" index="0"]
 wait_time = 0.25
 
-[node name="water_pulse6" parent="." instance=ExtResource("3_3jqcf")]
-position = Vector2(219, 1850)
-
-[node name="water_pulse" parent="." instance=ExtResource("3_3jqcf")]
-position = Vector2(527, 1850)
-
-[node name="water_pulse2" parent="." instance=ExtResource("3_3jqcf")]
-position = Vector2(819, 1850)
-
-[node name="water_pulse3" parent="." instance=ExtResource("3_3jqcf")]
-position = Vector2(1127, 1850)
-
-[node name="water_pulse4" parent="." instance=ExtResource("3_3jqcf")]
-position = Vector2(1445, 1850)
-
-[node name="water_pulse5" parent="." instance=ExtResource("3_3jqcf")]
-position = Vector2(1771, 1850)
-
-[node name="LevelHazardAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_lfcil")
-}
-
 [node name="player" parent="." instance=ExtResource("5_kv183")]
 position = Vector2(1235, 835)
+speed = 450.0
 
 [node name="weapon" parent="player" instance=ExtResource("6_8v5uj")]
 bullet_scene = ExtResource("7_1uqwk")
@@ -351,5 +174,26 @@ bullet_scene = ExtResource("7_1uqwk")
 
 [node name="Bullets" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="water_pulses" type="Node2D" parent="."]
+script = ExtResource("9_adj0g")
+
+[node name="water_pulse6" parent="water_pulses" instance=ExtResource("3_3jqcf")]
+position = Vector2(219, 1850)
+
+[node name="water_pulse" parent="water_pulses" instance=ExtResource("3_3jqcf")]
+position = Vector2(527, 1850)
+
+[node name="water_pulse2" parent="water_pulses" instance=ExtResource("3_3jqcf")]
+position = Vector2(819, 1850)
+
+[node name="water_pulse3" parent="water_pulses" instance=ExtResource("3_3jqcf")]
+position = Vector2(1127, 1850)
+
+[node name="water_pulse4" parent="water_pulses" instance=ExtResource("3_3jqcf")]
+position = Vector2(1445, 1850)
+
+[node name="water_pulse5" parent="water_pulses" instance=ExtResource("3_3jqcf")]
+position = Vector2(1771, 1850)
 
 [editable path="Piscis"]
