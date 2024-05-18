@@ -8,10 +8,10 @@ script = ExtResource("1_c0dpg")
 [node name="Bullet Spawning Points" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="Bullet Spawning Points"]
-position = Vector2(10, -10)
+position = Vector2(5, -10)
 
 [node name="Marker2D2" type="Marker2D" parent="Bullet Spawning Points"]
 position = Vector2(0, -10)
 
 [node name="Marker2D3" type="Marker2D" parent="Bullet Spawning Points"]
-position = Vector2(-10, -10)
+position = Vector2(-5, -10)
