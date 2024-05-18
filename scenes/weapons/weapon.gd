@@ -21,12 +21,3 @@ func fire(target_direction: Vector2 = direction):
 
 func is_on_cooldown():
 	return !debounce.is_stopped()
-
-func build_bullet(target_direction):
-	var bullet: Bullet = bullet_scene.instantiate()
-	bullet.position = global_position
-	bullet.direction = target_direction
-	bullet.rotation = target_direction.angle()
-	bullet.rotation_degrees += 90
-	%Bullets.add_child.call_deferred(bullet, true)
-	
