@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="2_r0r3j"]
 [ext_resource type="PackedScene" uid="uid://dnhti2qkhw45m" path="res://scenes/weapons/weapon.tscn" id="3_wy0nk"]
 [ext_resource type="PackedScene" uid="uid://tlhnks1d8vwq" path="res://scenes/weapons/bullet.tscn" id="4_13t6y"]
+[ext_resource type="PackedScene" uid="uid://c4tuuq8ah1vm5" path="res://scenes/weapons/pattens/triple_shot.tscn" id="5_ghvjm"]
 [ext_resource type="Script" path="res://scripts/dead_zone.gd" id="5_oey0e"]
-[ext_resource type="PackedScene" uid="uid://d2k5errg7ms6f" path="res://scenes/weapons/pattens/star_pattern.tscn" id="5_y2d08"]
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="7_wjp1r"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu_button.gd" id="8_w4o0v"]
 [ext_resource type="PackedScene" uid="uid://by2dpsnrjco44" path="res://scenes/enemies/taurus/taurus.tscn" id="9_a3gkv"]
@@ -29,10 +29,9 @@ speed = 450.0
 
 [node name="weapon" parent="player" node_paths=PackedStringArray("bullet_pattern") instance=ExtResource("3_wy0nk")]
 bullet_scene = ExtResource("4_13t6y")
-bullet_pattern = NodePath("StarPattern")
+bullet_pattern = NodePath("TripleShot")
 
-[node name="StarPattern" parent="player/weapon" instance=ExtResource("5_y2d08")]
-are_bullets_linked = false
+[node name="TripleShot" parent="player/weapon" instance=ExtResource("5_ghvjm")]
 
 [node name="dead_zone" type="Area2D" parent="."]
 collision_layer = 32768

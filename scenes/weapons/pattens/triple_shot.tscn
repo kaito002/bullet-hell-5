@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4tuuq8ah1vm5"]
+
+[ext_resource type="Script" path="res://scenes/weapons/bullet_pattern.gd" id="1_ohnjv"]
+[ext_resource type="PackedScene" uid="uid://byouqg816vieb" path="res://scenes/weapons/pattens/bullet_spawning_points.tscn" id="2_ic635"]
+
+[node name="TripleShot" type="Node2D"]
+script = ExtResource("1_ohnjv")
+
+[node name="Bullet Spawning Points" parent="." instance=ExtResource("2_ic635")]
+
+[node name="Marker2D" type="Marker2D" parent="Bullet Spawning Points"]
+
+[node name="Marker2D2" type="Marker2D" parent="Bullet Spawning Points"]
+position = Vector2(100, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Bullet Spawning Points"]
+position = Vector2(-100, 0)
