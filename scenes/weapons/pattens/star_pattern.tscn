@@ -5,6 +5,7 @@
 
 [node name="StarPattern" type="Node2D"]
 script = ExtResource("1_e0cap")
+are_bullets_linked = false
 
 [node name="Bullet Spawning Points" parent="." instance=ExtResource("2_vtxnd")]
 
