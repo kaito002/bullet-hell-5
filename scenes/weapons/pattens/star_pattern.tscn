@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2k5errg7ms6f"]
+
+[ext_resource type="Script" path="res://scenes/weapons/bullet_pattern.gd" id="1_e0cap"]
+[ext_resource type="PackedScene" uid="uid://byouqg816vieb" path="res://scenes/weapons/pattens/bullet_spawning_points.tscn" id="2_vtxnd"]
+
+[node name="StarPattern" type="Node2D"]
+script = ExtResource("1_e0cap")
+
+[node name="Bullet Spawning Points" parent="." instance=ExtResource("2_vtxnd")]
+
+[node name="Marker2D" type="Marker2D" parent="Bullet Spawning Points"]
+position = Vector2(0, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="Bullet Spawning Points"]
+position = Vector2(0.951, -0.309)
+
+[node name="Marker2D3" type="Marker2D" parent="Bullet Spawning Points"]
+position = Vector2(0.588, 0.809)
+
+[node name="Marker2D4" type="Marker2D" parent="Bullet Spawning Points"]
+position = Vector2(-0.588, 0.809)
+
+[node name="Marker2D5" type="Marker2D" parent="Bullet Spawning Points"]
+position = Vector2(-0.951, -0.309)
