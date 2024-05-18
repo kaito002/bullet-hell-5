@@ -16,15 +16,14 @@ func shoot(direction: Vector2):
 		var new_bullet: Bullet = bullet.instantiate()
 		new_bullet.global_position = marker.global_position
 		new_bullet.direction = get_direction(direction, marker.position).normalized()
-		new_bullet.rotation = direction.angle()
+		new_bullet.rotation = new_bullet.direction.angle()
 		new_bullet.rotation_degrees += 90
 		%Bullets.add_child.call_deferred(new_bullet, true)
 
 func get_direction(direction: Vector2, marker_position: Vector2):
-	print(str("Direction: ", direction, " | marker position: ", marker_position.normalized()))
-	print(str("Angle to marker: ", direction.angle_to(-marker_position)))
 	if are_bullets_linked:
 		return direction
 	else:
-		return direction * (direction.direction_to(marker_position))
+		var deg = rad_to_deg(Vector2.ZERO.angle_to_point(-marker_position.normalized())) - 90
+		return direction.rotated(deg).normalized()
 	
