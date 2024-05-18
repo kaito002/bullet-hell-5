@@ -4,12 +4,12 @@ extends AnimatedSprite2D
 var _should_execute: bool = false
 
 func start():
-    _should_execute = true
+	_should_execute = true
 
 
 func finish():
-    _should_execute = false
+	_should_execute = false
 
 
 func _process(delta):
-    
+	
