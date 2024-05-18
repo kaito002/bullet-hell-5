@@ -1,7 +1,7 @@
 class_name BulletPattern
 extends Node2D
 
-@export var are_bullets_linked = false
+@export var are_bullets_linked = true
 @onready var bullet_spawning_points = $"Bullet Spawning Points"
 var bullet: PackedScene
 
@@ -24,6 +24,6 @@ func get_direction(direction: Vector2, marker_position: Vector2):
 	if are_bullets_linked:
 		return direction
 	else:
-		var deg = rad_to_deg(Vector2.ZERO.angle_to_point(-marker_position.normalized())) - 90
-		return direction.rotated(deg).normalized()
+		var rotation_rads = Vector2.ZERO.angle_to_point(-marker_position.normalized()) - deg_to_rad(90)
+		return direction.rotated(rotation_rads).normalized()
 	
