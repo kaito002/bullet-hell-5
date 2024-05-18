@@ -32,6 +32,7 @@ bullet_scene = ExtResource("4_13t6y")
 bullet_pattern = NodePath("Shotgun Pattern")
 
 [node name="Shotgun Pattern" parent="player/weapon" instance=ExtResource("5_qb6i3")]
+are_bullets_linked = false
 
 [node name="dead_zone" type="Area2D" parent="."]
 collision_layer = 32768
