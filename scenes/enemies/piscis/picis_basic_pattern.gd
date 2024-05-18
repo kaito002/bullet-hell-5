@@ -9,6 +9,5 @@ func fire():
 	var bullet: Bullet = bullet_scene.instantiate()
 	bullet.position = global_position
 	bullet.direction = Vector2(Globals.player.global_position.x - global_position.x, Globals.player.global_position.y - global_position.y).normalized()
-	print(bullet.direction.normalized())
 	bullet.speed = 300
 	get_tree().root.add_child(bullet)
