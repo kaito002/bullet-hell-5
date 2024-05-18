@@ -8,7 +8,6 @@ extends Node2D
 @onready var debounce: Timer = $debounce
 
 
-
 func _ready():
 	direction = direction.normalized()
 	debounce.wait_time = 1/fire_rate
