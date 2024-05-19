@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0uk1w3owlvv7"]
+[gd_scene load_steps=18 format=3 uid="uid://c0uk1w3owlvv7"]
 
 [ext_resource type="Texture2D" uid="uid://dv14lgwwmyngb" path="res://assets/Background.png" id="1_kolbb"]
 [ext_resource type="PackedScene" uid="uid://s8ky14omwdpg" path="res://scenes/enemies/piscis/Piscis.tscn" id="1_lpxks"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dnhti2qkhw45m" path="res://scenes/weapons/weapon.tscn" id="6_8v5uj"]
 [ext_resource type="PackedScene" uid="uid://tlhnks1d8vwq" path="res://scenes/weapons/bullet.tscn" id="7_1uqwk"]
 [ext_resource type="PackedScene" uid="uid://cvris3exu6m66" path="res://scenes/player/player_controller.tscn" id="7_6k342"]
+[ext_resource type="PackedScene" uid="uid://bmmi2fxcxa2u1" path="res://scenes/weapons/pattens/shotgun_pattern.tscn" id="8_lf8xp"]
 [ext_resource type="Script" path="res://scenes/levels/picis/water_pulses.gd" id="9_adj0g"]
 
 [sub_resource type="Animation" id="Animation_gx57e"]
@@ -159,16 +160,19 @@ libraries = {
 }
 
 [node name="Piscis" parent="." instance=ExtResource("1_lpxks")]
-
-[node name="fire_rate" parent="Piscis/picis_weapon" index="0"]
-wait_time = 0.25
+position = Vector2(870, -438)
+metadata/_edit_vertical_guides_ = [211.0]
+metadata/_edit_horizontal_guides_ = [197.0]
 
 [node name="player" parent="." instance=ExtResource("5_kv183")]
 position = Vector2(1235, 835)
 speed = 450.0
 
-[node name="weapon" parent="player" instance=ExtResource("6_8v5uj")]
+[node name="weapon" parent="player" node_paths=PackedStringArray("bullet_pattern") instance=ExtResource("6_8v5uj")]
 bullet_scene = ExtResource("7_1uqwk")
+bullet_pattern = NodePath("Shotgun Pattern")
+
+[node name="Shotgun Pattern" parent="player/weapon" instance=ExtResource("8_lf8xp")]
 
 [node name="player_controller" parent="player" instance=ExtResource("7_6k342")]
 
@@ -195,5 +199,3 @@ position = Vector2(1445, 1850)
 
 [node name="water_pulse5" parent="water_pulses" instance=ExtResource("3_3jqcf")]
 position = Vector2(1771, 1850)
-
-[editable path="Piscis"]

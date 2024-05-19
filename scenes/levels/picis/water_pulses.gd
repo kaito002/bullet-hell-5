@@ -8,7 +8,7 @@ var even_tweens: Array[Tween] = []
 
 func _ready():
 	_separate_pulses()
-	_start_even_pulses()
+	# _start_even_pulses()
 
 func _separate_pulses():
 	var idx = 0

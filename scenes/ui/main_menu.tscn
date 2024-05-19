@@ -49,16 +49,19 @@ offset_bottom = 497.0
 pivot_offset = Vector2(256, 256)
 
 [node name="Geminis-1" type="TextureRect" parent="enemies/geminis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("2_fmceb")
 
 [node name="Geminis-2" type="TextureRect" parent="enemies/geminis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("3_bdtqf")
 
 [node name="Geminis-3" type="TextureRect" parent="enemies/geminis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("4_bb74v")
@@ -72,26 +75,31 @@ offset_bottom = 764.0
 pivot_offset = Vector2(256, 256)
 
 [node name="Taurus-1" type="TextureRect" parent="enemies/Taurus"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("5_yf3er")
 
 [node name="Taurus-2" type="TextureRect" parent="enemies/Taurus"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("6_icgo3")
 
 [node name="Taurus-3" type="TextureRect" parent="enemies/Taurus"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("7_jmyxu")
 
 [node name="Taurus-4" type="TextureRect" parent="enemies/Taurus"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("8_1knaf")
 
 [node name="Taurus-5" type="TextureRect" parent="enemies/Taurus"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("9_3sotw")
@@ -105,31 +113,37 @@ offset_bottom = 700.0
 pivot_offset = Vector2(256, 256)
 
 [node name="Tail" type="TextureRect" parent="enemies/Piscis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("5_mk5gl")
 
 [node name="Body" type="TextureRect" parent="enemies/Piscis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("6_pr8km")
 
 [node name="Cloud" type="TextureRect" parent="enemies/Piscis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("7_x10a5")
 
 [node name="Head" type="TextureRect" parent="enemies/Piscis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("8_cjt3j")
 
 [node name="LeftArm" type="TextureRect" parent="enemies/Piscis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("9_2c2q0")
 
 [node name="RightArm" type="TextureRect" parent="enemies/Piscis"]
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 texture = ExtResource("10_qfvyd")
